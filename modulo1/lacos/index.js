@@ -23,7 +23,7 @@ for (let numero of lista) {
 
 // EXERCÍCIOS DE ESCRITA DE CÓDIGO
 
-/*1)
+// 1)
 
 let qntdBichinhos = Number(prompt("Quantos bichinhos de estimação você tem?"))
 
@@ -32,13 +32,13 @@ if (qntdBichinhos == 0) {
 }
 
 if (qntdBichinhos > 0) {
-  for (let i=0; i<qntdBichinhos; i++) {
+  for (let i=0; i < qntdBichinhos; i++) {
     const nomesBichos = prompt("Escreva os nomes dos bichinhos de estimação que você tem:")
     const nomesBichinhos = [nomesBichos]
     console.log(nomesBichinhos)
 
   }
-} */
+}
 
 // 2)
 
