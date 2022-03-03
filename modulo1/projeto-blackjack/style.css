@@ -1,0 +1,28 @@
+body{
+    background: var(--preta);
+    color: white;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background-image: url(/img/blackjack_online_cassinos_Brazil.jpg)
+}
+
+header {
+    height: 80px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+    margin: auto;
+  }
+
+  header a {
+    color: var(--black);
+    text-decoration:underline;
+  }
+
+ header a:hover {
+    color: var(--white);
+  }
