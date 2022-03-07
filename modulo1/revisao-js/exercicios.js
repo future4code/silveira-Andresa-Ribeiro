@@ -153,35 +153,70 @@ function retornaSegundoMaiorESegundoMenor(array) {
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+   let chamada = `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}.`
+   return chamada
 }
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+   let novaPessoa = {
+      ...pessoa,
+      nome: "ANÔNIMO"
+  }
+  return novaPessoa
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+   const pessoasAutorizadas = pessoas.filter((item) => {
+      return (item.idade > 14 && item.idade < 60 && item.altura >= 1.5)   
+  })
+  return pessoasAutorizadas
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+   const pessoasNaoAutorizadas = pessoas.filter((item) => {
+      return !(item.idade > 14 && item.idade < 60 && item.altura >= 1.5)   
+  })
+  return pessoasNaoAutorizadas
 }
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
+   for (let objeto of contas) {
+      for (let valor of objeto.compras) {
+         objeto.saldoTotal = objeto.saldoTotal - valor
+      }
+      objeto.compras = []
+ }
+ return contas
 }
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+   
+   const ordenadaAlfa = consultas.sort((a, b) => {
+      return a.nome.localeCompare(b.nome)
+   })
+   return ordenadaAlfa
 }
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+
+   const ordenadaData = consultas.sort((a, b) => {
+      let dataA = a.dataDaConsulta.split("/")
+      let dataB = b.dataDaConsulta.split("/")
+      let dataAfinal = new Date(dataA[2], dataA[1], dataA[0]).getTime()
+      let dataBfinal = new Date(dataB[2], dataB[1], dataB[0]).getTime()
+      if (dataAfinal > dataBfinal) {
+         return 1
+      }
+      if (dataAfinal < dataBfinal) {
+         return -1
+      }
+      return 0
+   })
+   return ordenadaData
 }
