@@ -6,26 +6,29 @@
 // EXERCÍCIO 01
 
 function retornaTamanhoArray(array) {
-   let lista = [1,2,3,4,5,6,7,8,9,10]
    return array.length
 }
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
-   let lista = [1,2,3,4,5,6,7,8,9,10]
    return array.reverse()
 }
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-   let lista = [1,2,3,4,5,6,7,8,9,10]
    array.sort((a, b) => a - b);
    return array
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+   let lista = []
+   for (let numero of array) {
+      if (numero % 2 === 0) {
+         lista.push(numero)
+      }
+   }
+   return lista
 }
 
 // EXERCÍCIO 05
