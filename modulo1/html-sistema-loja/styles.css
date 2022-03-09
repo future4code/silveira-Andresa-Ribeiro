@@ -1,0 +1,113 @@
+body{
+    background: var(--preta);
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background: rgba(255, 231, 255, 0.349);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    margin:0;
+}
+
+header .container{
+    background-color: rgba(226, 149, 226, 0.432);
+    bottom:0;
+    height: 80px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(209, 8, 8);
+}
+
+header nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+header nav a:hover{
+    color: red;
+    font-style: italic;
+}
+
+.nav-flex {
+    font-size: 16px;
+    height: 80%;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex;
+}
+
+.titulo-informacoes {
+    background-color: rgb(238, 170, 238);
+    bottom:0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corpo {
+    height: 45%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom:60px;
+    text-align: center;
+}
+
+.formulario {
+    text-align: center;
+    height: 45%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom:60px;
+    text-align: center;
+}
+
+.rodape {
+    background-color: rgba(226, 149, 226, 0.432);
+    bottom:0;
+    width: 100%;
+    color: var(--black);
+    font-weight: bold;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+footer {
+    bottom:0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+  }
+  
+  footer a {
+    color: var(--red);
+    text-decoration: underline;
+  }
+  
+  footer a:hover {
+    color: red;
+    font-style: italic;
+  }
