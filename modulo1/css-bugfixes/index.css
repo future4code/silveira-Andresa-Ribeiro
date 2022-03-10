@@ -69,11 +69,12 @@ div>p:first-child {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding-top: 50px;
+    padding-top: 70px;
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    margin: 0px 550px 0px 550px;
 }
 
 #container-para-comprar {
