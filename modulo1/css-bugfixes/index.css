@@ -25,21 +25,12 @@ button:focus {
     color: white;
 }
 
-img {
-    width: 100px;
-    
-}
-
 .redimensionarImagem {
     width: 90px;
 }
 
 div>p:first-child {
     display: inline;
-}
-
-div img {
-    background: black;
 }
 
 .botao-amarelo {
