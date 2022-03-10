@@ -101,6 +101,7 @@ div:last-child {
 
 table {
     width: 60%;
+    margin: auto;
 }
 
 div table tbody tr td:nth-child(2) {
@@ -143,6 +144,10 @@ td button:active {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    position: relative;
+    top: 50px;
+    display: block;
+    margin: auto;
 }
 
 #back-button:hover {
