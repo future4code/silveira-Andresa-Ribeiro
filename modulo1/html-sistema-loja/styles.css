@@ -86,6 +86,7 @@ header nav a:hover{
     left: 0;
     bottom: 0;
     width: 100%;
+    position: fixed;
 }
 
 
@@ -99,7 +100,7 @@ footer {
     color: var(--black);
     text-align: center;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
   }
   
   footer a {
