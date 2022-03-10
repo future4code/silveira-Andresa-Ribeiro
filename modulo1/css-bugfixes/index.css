@@ -27,6 +27,11 @@ button:focus {
 
 img {
     width: 100px;
+    
+}
+
+.redimensionarImagem {
+    width: 90px;
 }
 
 div>p:first-child {
