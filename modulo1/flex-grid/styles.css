@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bodyContainer {
+    display: grid;
+    background-color: white;
+    height: 100vh;
+    grid-template-rows: 70px 1fr 70px;
+    grid-template-columns: 1fr 4fr;
+}
+
+header {
+    background-color: rgb(214, 52, 155);
+    grid-column: 1/ -1;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding: 16px;
+}
+
+header button {
+    width: 50px;
+    height: 20px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+#icone-bolinho {
+    width: 20px;
+}
+
+header h1 {
+    flex-grow: 1;
+    margin: 14px;
+    font-size: 24px;
+}
+
+nav {
+    background-color: #f2d0e0;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 15fr;
+    align-items: start;
+    justify-items: start;
+    padding-left: 17px;
+    padding-top: 13px;
+    font-weight: bolder;
+}
+
+p {
+    margin: 8px;
+}
+
+nav img {
+    width: 20px;
+    height: 20px;
+    margin-right: 18px;
+    padding-top: 6px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 15px;
+    column-gap: 15px;
+    margin: 15px;
+    margin-top: 25px;
+}
+
+main div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 2px 3px 4px 2px darkgray;
+    width: 95%;
+    margin-bottom: 5px;
+}
+
+main h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+main img {
+    width: 100%;
+}
+
+footer{
+    background-color: rgb(201, 35, 140);
+    grid-column: 1/ -1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
