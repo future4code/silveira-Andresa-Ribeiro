@@ -86,16 +86,27 @@ class App extends React.Component {
       }
     })
 
-    this.setState({
-      tarefas: listaDeTarefas})
+    this.setState({tarefas: listaDeTarefas})
   }
 
-  removerUmaTarefa = (id) => {
-    const novaListaDeTarefas = this.state.tarefas.filter((tarefa) => {
-      return id !== tarefa.id })
-    
-    this.setState({ tarefas: novaListaDeTarefas})
-    
+    Crescente = () => {
+      let tarefasCrescentes = [...this.state.tarefas]; 
+  
+      tarefasCrescentes.sort( function(a,b) {
+        return a.texto.localeCompare(b.texto)
+      })
+  
+      this.setState({tarefas: tarefasCrescentes}); 
+    }
+  
+    Decrescente = () => {
+      let tarefasDecrescentes = [...this.state.tarefas]; 
+  
+      tarefasDecrescentes.sort( function(a,b) {
+        return (b.texto.localeCompare(a.texto))
+      })
+  
+      this.setState({tarefas: tarefasDecrescentes}); 
     }
 
 
@@ -163,8 +174,14 @@ class App extends React.Component {
         </TarefaList>
 
       <div className='botoes-remover'>
-        <button className='botao-remover' onClick={this.removerUmaTarefa}>Remover uma tarefa</button>
+
         <button className='botao-remover' onClick={this.removerTarefas}>Remover todas as tarefas</button>
+
+        <br/>
+
+        <button className='botao-remover' onClick={this.Crescente}>Filtrar Alfabetica Crescente</button>
+        
+        <button className='botao-remover' onClick={this.Decrescente}>Filtrar Alfabetica Descrescente</button>
         </div>
       </div>
     )
