@@ -1,0 +1,33 @@
+body {
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+}
+
+h2 {
+  color: brown;
+}
+
+
+.perguntas1 {
+  font-weight: bolder;
+}
+
+.perguntas2 {
+  font-weight: bolder;
+}
+
+.perguntas3 {
+  font-weight: bolder;
+}
+
+p {
+  font-weight: bolder;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(68, 63, 63);
+}
+
+a:hover {
+  color: red;
+}
