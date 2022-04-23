@@ -1,0 +1,32 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+body {
+  background-image: url("./img/gif-pokemon.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
+}
+
+.infos {
+  background-color: whitesmoke;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid green;
+  border-radius: 10px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+select {
+  width: 130px;
+}
