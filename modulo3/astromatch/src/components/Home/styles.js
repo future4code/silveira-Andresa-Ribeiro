@@ -8,7 +8,7 @@ export const ContainerPage = styled.div `
 `
 
 export const ContainerHome = styled.div `
-    border: 1px solid black;
+    border: 2px solid pink;
     width: 400px;
     height: 600px;
     border-radius: 7px;
@@ -18,6 +18,7 @@ export const ContainerHome = styled.div `
 export const ContainerProfileAndButtons = styled.div `
     display: flex;
     flex-direction: column;
+    font-weight: bold;
     padding: 20px 20px 0px;
 `
 
@@ -25,7 +26,7 @@ export const ContainerProfile = styled.div `
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 460px;
+    height: 450px;
     box-shadow: 0px 0px 4px 0px #848484;
     border-radius: 7px;
     img {
@@ -46,6 +47,7 @@ export const Texto = styled.div `
     bottom: 0px;
     padding: 10px;
     color: white;
+    font-size: 18px;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
     width: -webkit-fill-available;
     border-radius: 7px;
@@ -61,9 +63,9 @@ export const HeaderApp = styled.div `
     justify-content: space-between;
     position: relative;
     background-color: #fffeff;
-    height: 50px;
+    height: 60px;
     border-bottom: 1px solid silver;
-    padding: 0px 5px;
+    padding: 0px 2px;
     img {
         height: 100%;
         border-radius: 7px;
@@ -74,62 +76,89 @@ export const FooterApp = styled.div `
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 10px;
 `
 
 export const ButtonLike = styled.button`
-    box-shadow: inset 0px 1px 0px 0px #3cc21b;
-	background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-	background-color: #44c767;
-	border-radius: 42px;
-	border: 3px solid #18ab29;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Arial;
-	font-size: 16px;
-	font-weight: bold;
-	padding: 10px 14px;
-	text-decoration: none;
-	text-shadow: 0px 1px 1px #2f6627;
-    :hover {
-        background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-        background-color: #5cbf2a;
-    }   
-    :active {
-        position: relative;
-        top: 1px;
-    }
+   border-radius: 50%;
+   width: 70px;
+   height: 70px;
+   border: 2px solid green;
+   color: green;
+   font-size: 50px;
+   transform: scale(0.7);
+   transition: 0.2s;
+   position: relative;
+   box-shadow: 0 0 15px 0 rgba(205, 205, 205, 0.73);
+   overflow: hidden;
+   padding-bottom: 5px;
+   cursor: pointer;
+   
+   :focus {
+   		outline: none;
+   }
+   
+   :hover {
+    background-color: green;
+    color: white;
+    transform: scale(0.8)
+   }
+   
+   :active {
+			:before {
+				height: 100%;
+				width: 100%;
+				top: 0;
+    		left: 0;
+    		position: absolute;
+    		background-color: rgba(0, 0, 0, 0.5);
+    		content: "";
+			}
+   }
 `
 
 export const ButtonDislike = styled.button`
-	box-shadow: inset 0px 1px 0px 0px #8a2a21;
-	background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-	background-color: #c62d1f;
-	border-radius: 42px;
-	border: 3px solid #d02718;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Arial;
-	font-size: 18px;
-	font-weight: bold;
-	padding: 10px 15px;
-	text-decoration: none;
-	text-shadow: 0px 1px 1px #810e05;
-    :hover {
-        background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-        background-color: #f24437;
-    }
-    :active {
-        position: relative;
-        top: 1px;
-    }
+   border-radius: 50%;
+   width: 70px;
+   height: 70px;
+   border: 2px solid red;
+   color: red;
+   font-size: 50px;
+   transform: scale(0.7);
+   transition: 0.2s;
+   position: relative;
+   box-shadow: 0 0 15px 0 rgba(205, 205, 205, 0.73);
+   overflow: hidden;
+   cursor: pointer;
+   
+   :focus {
+   		outline: none;
+   }
+   
+   :hover {
+    background-color: red;
+    color: white;
+    transform: scale(0.8)
+   }
+   
+   :active {
+			:before {
+				height: 100%;
+				width: 100%;
+				top: 0;
+    		left: 0;
+    		position: absolute;
+    		background-color: rgba(0, 0, 0, 0.5);
+    		content: "";
+			}
+   }
 `
 
 export const MatchingImg = styled.img`
-    width: 3vw;
+    width: 4vw;
+    padding: 3px;
     transition: all 300ms;
+    cursor: pointer;
+
     :hover {
         transform: scale(0.9);
     }
@@ -139,3 +168,41 @@ export const MatchingImg = styled.img`
     }
 `
 
+export const BotaoResetar = styled.button`
+   border-radius: 5%;
+   width: 140px;
+   height: 70px;
+   border: 2px solid #ff3ab3;
+   color: #ff3ab3;
+   font-size: 35px;
+   transform: scale(0.7);
+   transition: 0.2s;
+   position: relative;
+   margin-left: 8vw;
+   box-shadow: 0 0 15px 0 rgba(205, 205, 205, 0.73);
+   overflow: hidden;
+   padding-bottom: 5px;
+   cursor: pointer;
+   
+   :focus {
+   		outline: none;
+   }
+   
+   :hover {
+    background-color: #ff3ab3;
+    color: white;
+    transform: scale(0.8)
+   }
+   
+   :active {
+			:before {
+				height: 100%;
+				width: 100%;
+				top: 0;
+    		left: 0;
+    		position: absolute;
+    		background-color: rgba(0, 0, 0, 0.5);
+    		content: "";
+			}
+   }
+`

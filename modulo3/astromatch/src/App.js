@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/murilo-terenciani-maryam/clear'
+const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andresa-ribeiro-silveira/clear'
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   const renderPage = () => {
     switch (page) {
       case "home":
-        return <Home nextPage={nextPage} resetar={clearApp}></Home>;
+        return <Home nextPage={nextPage} limpar={clearApp}></Home>;
       case "matches":
         return <Matches backPage={backPage}></Matches>
       default:
@@ -53,10 +53,9 @@ function App() {
           }
     }
 
-    axios
-    .put(url, headers)
+    axios.put(url, headers)
     .then((res) => {
-      alert('App e lista de matches resetados com sucesso, atualize a página para se divertir novamente!')
+      alert('Matches apagados com sucesso, atualize a página e encontre novos matches!')
     })
     .catch((err) => {
       console.log(err)

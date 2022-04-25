@@ -8,7 +8,7 @@ export const ContainerPage = styled.div `
 `
 
 export const ContainerMatches = styled.div `
-    border: 1px solid black;
+    border: 2px solid pink;
     width: 400px;
     height: 600px;
     border-radius: 7px;
@@ -19,12 +19,13 @@ export const ContainerMatches = styled.div `
 
 export const HeaderApp = styled.div `
     display: flex;
+    background-color: white;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    height: 50px;
+    height: 60px;
     border-bottom: 1px solid silver;
-    padding: 0px 5px;
+    padding: 0px 2px;
 
     img {
         height: 100%;
@@ -39,9 +40,7 @@ export const MatchesList = styled.ul `
     transition: all 1s;
 
     :hover {
-        transform: scale(1.01);
-        background-image: linear-gradient(135deg, hsla(355, 32%, 59%, 0.8) 0%, hsla(292, 32%, 59%, 1) 50%, hsla(231, 32%, 59%, 1) 100%);
-    }
+        background-image: linear-gradient(45deg, #fad0c4 0%, #ff9a9e 99%, #ff9a9e 100%);    }
 `
 
 export const PersonMatch = styled.li `
@@ -64,6 +63,8 @@ export const PersonImage = styled.img `
 export const HomeImg = styled.img`
     transition: all 300ms;
     width: 45px;
+    cursor: pointer;
+    padding: 3px 0px;
 
     :hover {
         transform: scale(0.9);
@@ -81,8 +82,10 @@ export const NoMatches = styled.div `
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    font-weight: bold;
+    text-align: center;
 `
 
-export const BrokenHeart = styled.img `
+export const SemMatches = styled.img `
     width: 50%;
 `

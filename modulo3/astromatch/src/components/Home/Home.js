@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ContainerPage, ContainerProfile, Infos, Texto, Bio, HeaderApp, FooterApp, 
-        ContainerHome, ContainerProfileAndButtons, ButtonLike, ButtonDislike, MatchingImg } from './styles'
-import logo from '../../imgs/logo.png'
+        ContainerHome, ContainerProfileAndButtons, BotaoResetar, ButtonLike, ButtonDislike, MatchingImg } from './styles'
+import logo from '../../imgs/astromatch.gif'
 import matching from '../../imgs/matching.png'
 
-
-const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/murilo-terenciani-maryam/person'
-const url1 = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/murilo-terenciani-maryam/choose-person'
+const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andresa-ribeiro-silveira/person'
+const url1 = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andresa-ribeiro-silveira/choose-person'
 
 
 function Home(props) {
@@ -19,8 +18,7 @@ function Home(props) {
 
 
     const getProfileToChoose = () => {
-        axios
-        .get(url)
+        axios.get(url)
         .then((res) => {
             setProfile(res.data.profile)
         })
@@ -43,8 +41,7 @@ function Home(props) {
                 "choice": boolean
             }
         
-        axios
-        .post(url1, body, headers)
+        axios.post(url1, body, headers)
         .then((res) => {
             console.log(res)
             getProfileToChoose()
@@ -81,9 +78,9 @@ function Home(props) {
                         </FooterApp> 
                     </ContainerProfileAndButtons> : 
                     <ContainerProfileAndButtons>
-                        <p>Não existe mais perfis! Vá para a seção de Matches, para ver quem te curtiu também!</p>
-                        <p>Se preferir você também pode resetar o app, para ter novas chances:</p>
-                        <button onClick={props.resetar}>Resetar</button>
+                        <p>Não existe mais perfis! Que tal você ver seus Matches para ver quem te curtiu também?</p>
+                        <p>Se preferir você também pode limpar suas preferências para ter novas chances:</p>
+                        <BotaoResetar onClick={props.limpar}>Limpar</BotaoResetar>
                     </ContainerProfileAndButtons> }
             </ContainerHome>
         </ContainerPage>

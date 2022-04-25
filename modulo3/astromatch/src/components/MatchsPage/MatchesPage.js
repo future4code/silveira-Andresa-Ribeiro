@@ -1,11 +1,11 @@
 import React, { useState, useEffect} from "react";
-import { ContainerPage, ContainerMatches, HeaderApp, ContainerList, MatchesList, PersonImage, PersonMatch, HomeImg, BrokenHeart, NoMatches } from './styles'
-import logo from '../../imgs/logo.png'
+import { ContainerPage, ContainerMatches, HeaderApp, ContainerList, MatchesList, PersonImage, PersonMatch, HomeImg, SemMatches, NoMatches } from './styles'
+import logo from '../../imgs/astromatch.gif'
 import axios from "axios";
-import home from '../../imgs/home.svg'
-import heart from '../../imgs/broken-heart.png'
+import home from '../../imgs/tinder.png'
+import heart from '../../imgs/sem-matches.png'
 
-const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/murilo-terenciani-maryam/matches'
+const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andresa-ribeiro-silveira/matches'
 
 function Matches(props) {
     const [matches, setMatches] = useState([])
@@ -15,8 +15,7 @@ function Matches(props) {
     }, [matches])
 
     const getMatches = () => {
-        axios
-        .get(url)
+        axios.get(url)
         .then((res) => {
             setMatches(res.data.matches)
         })
@@ -47,8 +46,8 @@ function Matches(props) {
                     <ContainerList>
                         {matchesList.length > 0 ? matchesList : 
                         <NoMatches>
-                            <BrokenHeart src={heart}/>
-                            <p>Você ainda não tem nenhum match, tente mais alguns perfis!</p>
+                            <SemMatches src={heart}/>
+                            <p>Ainda nenhum match? Veja mais perfils!</p>
                         </NoMatches>}
                     </ContainerList>
                 </ContainerMatches>
