@@ -26,7 +26,7 @@ export const Container = styled.div `
     }
 `
 
-export const ButtonsContainer = styled.div `
+export const Buttons = styled.div `
     display: flex;
     width: 100%;
     justify-content: space-between;

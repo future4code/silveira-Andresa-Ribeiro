@@ -1,32 +1,25 @@
 import React from "react";
-import { HomeContainer, ButtonsContainer, Container } from "./styles";
+import { HomeContainer, Buttons, Container } from "./Styles";
 import { useNavigate } from "react-router-dom";
+import { goToListTripsPage, goToLogin } from '../../routes/Coordinator';
 import Logo from "../../imgs/logo.jpg";
-import ListTripsPage from "../ListTripsPage";
-import LoginPage from "../LoginPage";
 
-const HomePage = () => {
-    const navigate = useNavigate()
-
-    const ListTripsPage = () => {
-        navigate("/trips/list")
-    }
-
-    const LoginPage = () => {
-        navigate("/login")
-    }
+export const HomePage = () => {
+    
+    const navigate = useNavigate();
 
     return (
         <HomeContainer>
             <Container>
                 <img src={Logo} />
                 <h1>LabeX</h1>
-                <ButtonsContainer>
-                    <button onClick={() => ListTripsPage(navigate)}>Ver Todas As Viagens</button>
-                    <button onClick={() => LoginPage(navigate)}>Área Administrativa</button>
-                </ButtonsContainer>
+                <Buttons>
+                    <button onClick={() => goToListTripsPage(navigate)}>Ver Todas As Viagens</button>
+                    <button onClick={() => goToLogin(navigate)}>Área Administrativa</button>
+                </Buttons>
             </Container>
         </HomeContainer>
     )
 }
 export default HomePage
+
