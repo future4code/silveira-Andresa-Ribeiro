@@ -1,25 +1,67 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goToApplicationFormPage, goBack } from '../../routes/Coordinator';
-import { TripsPageContainer, ComponentsTripContainer } from "./Styles"
+import { goToApplicationFormPage, goBack, goToTripDetailsPage } from "../../routes/Coordinator";
+import { TripsPageContainer, Card, ComponentsTripContainer, Container, Titulo, Botao, BotaoFuncoes } from "./Styles";
+import { useGetData } from "../../hooks/useGetData";
+import { url } from "../../constants/Url";
 
-function ListTripsPage() {
+export const ListTripsPage = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [trips, isLoading, error] = useGetData(`${url}/trips`);
 
-    return (
-        <div>
-            <TripsPageContainer>
-                <button onClick={() => goToApplicationFormPage(navigate)}>Inscreva-se</button>
+  const mapOfTrips =
+    trips &&
+    trips.trips.map((trip) => {
+      return (
+        <Card key={trip.id}>
+          <p>
+            <strong>Viagem: </strong> {trip.name}
+          </p>
+          <p>
+            <strong>Planeta: </strong>
+            {trip.planet}
+          </p>
+          <p>
+            <strong>Data: </strong>
+            {trip.date}
+          </p>
+          <p>
+            <strong>Duração: </strong>
+            {trip.durationInDays} dias
+          </p>
+          <p>
+            <strong>Descrição: </strong>
+            {trip.description}
+          </p>
 
-                <button onClick={() => goBack(navigate)}>Voltar</button>
-                <h1>Viagens Disponíveis</h1>
-                <ComponentsTripContainer>
-                    {navigate.length === 0 ? <p>Você não está inscrito em nenhuma viagem!</p> : navigate}
-                </ComponentsTripContainer>
-            </TripsPageContainer>
-        </div>
-    )
-}
+          <Botao onClick={() => goToTripDetailsPage(navigate)}>Detalhes</Botao>
+        </Card>
+      );
+    });
 
-export default ListTripsPage
+  return (
+    <Container>
+      <TripsPageContainer>
+        <Titulo>Viagens Disponíveis</Titulo>
+        <ComponentsTripContainer>
+          {isLoading && <p>Carregando...</p>}
+
+          {!isLoading && error && <p>Recarregue a página!</p>}
+
+          {!isLoading && trips && mapOfTrips}
+          
+          {!isLoading && trips && mapOfTrips.length === 0 && (<p>Não existe nenhuma viagem disponível</p>)}
+        </ComponentsTripContainer>
+
+        <BotaoFuncoes>
+        <button onClick={() => goToApplicationFormPage(navigate)}>Inscreva-se</button>
+        <button onClick={() => goBack(navigate)}>Voltar</button>
+        </BotaoFuncoes>
+        
+      </TripsPageContainer>
+    </Container>
+  );
+};
+
+export default ListTripsPage;

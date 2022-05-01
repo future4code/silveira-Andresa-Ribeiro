@@ -2,7 +2,7 @@ import React from "react";
 import { HomeContainer, Buttons, Container } from "./Styles";
 import { useNavigate } from "react-router-dom";
 import { goToListTripsPage, goToLogin } from '../../routes/Coordinator';
-import Logo from "../../imgs/logo.jpg";
+import Logo from "../../imgs/astronauta.gif";
 
 export const HomePage = () => {
     
@@ -12,7 +12,6 @@ export const HomePage = () => {
         <HomeContainer>
             <Container>
                 <img src={Logo} />
-                <h1>LabeX</h1>
                 <Buttons>
                     <button onClick={() => goToListTripsPage(navigate)}>Ver Todas As Viagens</button>
                     <button onClick={() => goToLogin(navigate)}>Área Administrativa</button>

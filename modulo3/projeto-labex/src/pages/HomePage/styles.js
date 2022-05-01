@@ -1,13 +1,17 @@
 import styled from "styled-components";
+import ceuEstrelado from "../../imgs/ceuEstrelado.gif";
 
 export const HomeContainer = styled.div `
     width: 100vw;
-    height: 100vh;
+    height: 71.5vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-size: cover;
     background-repeat: no-repeat;
+    padding-top: 6vw;
+    background-image: url(${ceuEstrelado});
+    background-attachment: fixed;
 `
 
 export const Container = styled.div `
@@ -30,16 +34,23 @@ export const Buttons = styled.div `
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 5%;
+    margin-top: 20%;
 
     button {
         height: 35px;
         border-radius: 10px;
         border: none;
+        background-color: purple;
+        color: white;
+        font-weight: bold;
+        box-shadow: 3px 3px 6px 2px black;
+        cursor: pointer;
     }
 
     button:hover {
-        background-color: #31afb4;
+        background-color: #2600ff;
         color: whitesmoke;
+        cursor: pointer;
     }
+    
 `

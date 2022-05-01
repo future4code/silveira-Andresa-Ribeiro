@@ -1,14 +1,16 @@
 import React from "react";
 import Router from "./routes/Router";
+import Header from "./pages/Header/Header";
 
-
-function App() {
+const App = () => {
   return (
-    <div>
-
-      <Router />
-    </div>
+    <>
+      <Header />
+      <div>
+        <Router />
+      </div>
+    </>
   );
-}
+};
 
-export default App
+export default App;
