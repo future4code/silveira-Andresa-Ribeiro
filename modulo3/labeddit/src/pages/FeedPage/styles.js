@@ -1,72 +1,55 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-export const Icon = styled.img `
-    width: 32px;
-`
-export const Card = styled.div `
-    box-shadow: #FAB253 0px 0px 0px 4px, #FD7D1C 0px 0px 0px 8px;
-    border-radius: 5px;
-    word-wrap: break-word;
-    background-color: white;
-`
-export const DivCards = styled.div `
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    padding-top: 20px;
-    width: 320px;
-    margin: auto;
-`
-export const DivBody = styled.div `
-    display: flex;
-    flex-direction: column;
-    
-`
-export const Textarea = styled.textarea `
-    width: 320px;
-    min-height: 15vh;
-    box-shadow: #D3D9DB 0px 0px 0px 4px, #47515A 0px 0px 0px 8px;
-    border-radius: 5px;    
-    word-wrap: break-word;
-    white-space:normal;
-    resize: none;
-`
+export const Body = styled.div`
+  width: 45vw;
+  margin: 8vh 33vw;
+  align-items: center;
+  max-width: 300vw;
+  display: flex;
+  flex-direction: column;
 
-export const TextareaTitulo = styled.textarea `
-    width: 320px;
-    min-height: 5vh;
-    box-shadow: #D3D9DB 0px 0px 0px 4px, #47515A 0px 0px 0px 8px;
-    border-radius: 5px;    
-    word-wrap: break-word;
-    white-space:normal;
-    resize: none;
-`
+  input {
+    background-color: #ffffff;
+    border: 1px solid #d5d8de;
+    border-radius: 4px;
+    padding: 0.5vw 10vw;
+    margin-bottom: 1vw;
+  }
+`;
 
-export const DivForm = styled.div `
-    display: flex;
-    flex-direction: column;
-    min-height: 30vh;
-    justify-content: center;
-`
+export const Header = styled.div`
+  display: flex;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  justify-content: space-between;
 
-
-export const StyledForm = styled.form `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 10px;
-    word-wrap: break-word;
-    margin: auto;
-`
-
-export const DivBotoesPosts = styled.div `
-    display: flex;
-    column-gap: 10px;
-`
-
-export const Icones = styled.button `
-    background: none;
+  button {
+    background-color: transparent;
     border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+  }
+`;
+
+export const Button = styled.div`
+  background: linear-gradient(90deg, #ff6489 0%, #f9b24e 100%);
+  border-radius: 27px;
+  height: 6vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 15px;
+  gap: 10px;
+  position: absolute;
+  margin-left: 15vw;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
     cursor: pointer;
-    padding-left: 10px;
-`
+    transition: all 800ms;
+    transform: scale(1.1);
+  }
+`;

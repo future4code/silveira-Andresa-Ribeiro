@@ -7,7 +7,9 @@ import { url } from "../../constants/Url";
 import Posts from "../../components/Posts";
 import {useForm} from "../../hooks/useForm";
 import Loading from "../../assets/Loading.gif";
-import { DivBody, DivCards, DivForm, StyledForm, Textarea, TextareaTitulo } from './styles'
+import { Body, InputBody, Header, Button } from './styles';
+import Logo from '../../assets/logo.png';
+
 
 export default function FeedPage() {
   const navigate = useNavigate();
@@ -39,6 +41,7 @@ export default function FeedPage() {
   const { posts } = states;
   const { headers } = values;
 
+  
   const postList = posts.map((post) => {
     return (
     <Posts
@@ -51,12 +54,16 @@ export default function FeedPage() {
 
   return (
     <div>
+      <Header>
+      <img src={Logo}></img>
+
       <button onClick={logout}>
         Logout
       </button>
-      <div>
+      </Header>
+      
+      <Body>
         <form onSubmit={createPost}>
-          <label htmlFor="title">Titulo:</label>
           <input
             name="title"
             placeholder="Titulo"
@@ -66,7 +73,6 @@ export default function FeedPage() {
             required
           />
 
-          <label>Post:</label>
           <input
             name="body"
             placeholder="O que deseja postar agora?"
@@ -75,9 +81,10 @@ export default function FeedPage() {
             required
             value={form.body}
           />
-          <button variant='dark' type="submit">Postar</button>
+
+          <Button type='submit'>Postar</Button>
         </form>
-      </div>
+      </Body>
 
       <div>{postList.length > 0 ? postList : <img src={Loading} alt="Loading" />}</div>
     </div>

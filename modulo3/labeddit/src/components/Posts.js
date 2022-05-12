@@ -11,7 +11,8 @@ import { goToPostPage } from "../routes/Coordinator";
 import axios from "axios";
 import { url } from "../constants/Url";
 
-const PostCards = (props) => {
+
+const Posts = (props) => {
     const navigate = useNavigate();
     const {values, requests} = useContext(GlobalStateContext);
     const { headers } = values;
@@ -81,14 +82,16 @@ const PostCards = (props) => {
                 <Icones onClick={createLikeVote}>{props.post.userVote === 1 ? <Icon src={LikeClicked} alt="like" /> : <Icon src={Like} alt="like" />}</Icones>
                 {props.post.voteSum === null ? <span>0</span> : <span>{props.post.voteSum}</span>}
                 <Icones onClick={createDislikeVote}>{props.post.userVote === -1 ? <Icon src={DislikeClicked} alt="dislike" /> : <Icon src={Dislike} alt="dislike" />}</Icones>
-            </DivBotoesPosts>
 
-            <DivBotoesPosts onClick={() => goToPostPage(navigate, props.post.id)}>
+                <DivBotoesPosts onClick={() => goToPostPage(navigate, props.post.id)}>
                 <Icones><Icon src={Comments} alt="comments" /></Icones>
                 {props.post.commentCount > 1 ? <span>{props.post.commentCount} comentários</span> : <span>{props.post.commentCount} comentário</span>}
             </DivBotoesPosts>
+            </DivBotoesPosts>
+
+            
         </Card>
     )
 }
 
-export default PostCards;
+export default Posts;

@@ -7,17 +7,19 @@ import SignUpPage from "../pages/SignUpPage/SignUpPage";
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<LoginPage />} />
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<LoginPage />} />
 
-        <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
 
-        <Route path="/feed" element={<FeedPage />} />
+          <Route path="/feed" element={<FeedPage />} />
 
-        <Route path="feed/post/:id" element={<PostPage />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="feed/post/:id" element={<PostPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 

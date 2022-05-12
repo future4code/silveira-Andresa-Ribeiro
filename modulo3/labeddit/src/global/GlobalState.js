@@ -10,7 +10,7 @@ const GlobalState = (props) => {
     const [comments, setComments] = useState([]);
     const [postInfo, setPostInfo] = useState([]);
 
-    const token = localStorage.getItem("token");
+    const token = window.localStorage.getItem("token");
     const headers = { headers: {
         Authorization : token
     }
@@ -28,15 +28,14 @@ const GlobalState = (props) => {
     }
     
     useEffect(() => {
-        if (token !== null) {
             getPosts();
-        }
     }, [])
 
     const states = {posts, comments, postInfo}
     const setters = {setPosts, setComments, setPostInfo}
     const values = {token, headers}
     const requests = {getPosts}
+    
     return (
         <GlobalStateContext.Provider value={{states, setters, values, requests}}>
             {props.children}

@@ -2,10 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
-import {useForm} from "../../hooks/useForm";
-import {url} from '../../constants/Url';
-import {goToSignUpPage, goToFeedPage} from "../../routes/Coordinator";
-import { Container, ButtonContainer, InputsContainer } from './styles'
+import { useForm } from "../../hooks/useForm";
+import { url } from "../../constants/Url";
+import { goToSignUpPage, goToFeedPage } from "../../routes/Coordinator";
+import { Container, ButtonContainer, ButtonContainer2, InputsContainer, Header } from "./styles";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -30,9 +30,10 @@ const LoginPage = () => {
 
   return (
     <Container>
-      <img src={Logo} />
-      <h2>LabEddit</h2>
-      <p>O projeto de rede social da Andresa</p>
+      <Header>
+        <img src={Logo} />
+        <h2>LabEddit</h2>
+      </Header>
 
       <form onSubmit={login}>
         <InputsContainer>
@@ -46,6 +47,7 @@ const LoginPage = () => {
             variant={"outlined"}
             required
           ></input>
+
           <input
             name="password"
             placeholder="Senha"
@@ -61,8 +63,11 @@ const LoginPage = () => {
         </InputsContainer>
         <ButtonContainer>
           <button onClick={() => navigate}>Entrar</button>
-          <button onClick={() => goToSignUpPage(navigate)}>Cadastre-se</button>
         </ButtonContainer>
+
+        <ButtonContainer2>
+          <button onClick={() => goToSignUpPage(navigate)}>Cadastre-se</button>
+        </ButtonContainer2>
       </form>
     </Container>
   );

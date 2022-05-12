@@ -8,7 +8,7 @@ import DislikeClicked from "../assets/dislike-clicked.png"
 import { url } from "../constants/Url"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const CommentsCards = (props) => {
+const Comments = (props) => {
     const { values, requests } = useContext(GlobalStateContext);
     const { headers } = values
     const {getPosts} = requests
@@ -82,4 +82,4 @@ const CommentsCards = (props) => {
 
 }
 
-export default CommentsCards;
+export default Comments;
