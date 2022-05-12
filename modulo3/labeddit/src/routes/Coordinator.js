@@ -3,19 +3,15 @@ export const goToLogin = (navigate) => {
 }
 
 export const goToSignUpPage = (navigate) => {
-    navigate("/cadastro")
+    navigate("/signup")
 }
 
-export const goTFeedPage = (navigate) => {
-    navigate(`user/feed`)
-}
-
-export const goToCreateTripPage = (navigate) => {
-    navigate(`/user/trips/create`)
+export const goToFeedPage = (navigate) => {
+    navigate("/feed")
 }
 
 export const goToPostPage= (navigate, id) => {
-    navigate(`/user/postagem/${id}`)
+    navigate(`/feed/post/${id}`)
 }
 
 export const goBack = (navigate) => {

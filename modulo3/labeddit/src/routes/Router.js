@@ -4,7 +4,6 @@ import FeedPage from "../pages/FeedPage/FeedPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import PostPage from "../pages/PostPage/PostPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const Router = () => {
   return (
@@ -12,13 +11,11 @@ const Router = () => {
       <Routes>
         <Route index element={<LoginPage />} />
 
-        <Route path="/cadastro" element={<SignUpPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
 
         <Route path="/feed" element={<FeedPage />} />
 
-        <Route path="/postagem/:id" element={<PostPage />} />
-
-        <Route element={<ErrorPage />} />
+        <Route path="feed/post/:id" element={<PostPage />} />
       </Routes>
     </BrowserRouter>
   );
