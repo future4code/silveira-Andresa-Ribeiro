@@ -4,3 +4,7 @@
 # Link surge: 
 zonked-committee.surge.sh
 
+# Dados para login:
+email: demo.email@gmail.com
+senha: demo.password
+
