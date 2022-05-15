@@ -10,7 +10,7 @@ export const Container = styled.div `
 
 export const InputsContainer = styled.div `
   width: 45vw;
-  margin-top: 11vh;
+  margin-top: 9vh;
   align-items: center;
   max-width: 300vw;
   display: flex;
@@ -35,10 +35,10 @@ export const ButtonContainer = styled.div `
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 3px 133px;
+  padding: 3px 100px;
   gap: 10px;
   position: absolute;
-  margin-top: 13vw;
+  margin-top: 11vw;
   cursor: pointer;
 
   button {
@@ -46,6 +46,7 @@ export const ButtonContainer = styled.div `
     background-color: transparent;
     border: none;
     color: white;
+    cursor: pointer;
   }
 
   &:hover {
@@ -63,11 +64,11 @@ export const ButtonContainer2 = styled.div `
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 3px 133px;
+  padding: 3px 50px;
   gap: 10px;
   position: absolute;
   margin-top: 3vw;
-  margin-left: 11vw;
+  margin-left: 17vw;
   cursor: pointer;
 
   button {
@@ -75,6 +76,7 @@ export const ButtonContainer2 = styled.div `
     background-color: transparent;
     border: none;
     color: white;
+    cursor: pointer;
   }
 
   &:hover {
@@ -94,6 +96,11 @@ export const Checkbox = styled.div `
 
     span {
         color: rgb(0, 81, 255);
+        cursor: pointer;
+        
+        :hover {
+          text-decoration: underline;
+        }
     }
 
     input {
@@ -103,4 +110,6 @@ export const Checkbox = styled.div `
 
 export const HeaderContainer = styled.div `
     padding-left: 8vw;
+    color: orange;
+    font-size: 24px;
 `

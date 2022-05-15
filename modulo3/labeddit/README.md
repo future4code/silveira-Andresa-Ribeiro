@@ -2,5 +2,5 @@
 (com React.js - custom hooks, styled-components, react-router e axios).
 
 # Link surge: 
-https://bizarre-amount.surge.sh/
+zonked-committee.surge.sh
 

@@ -16,6 +16,8 @@ export const Header = styled.div `
   h2{
     text-align: center;
     margin-top: 1vw;
+    color: orange;
+    font-size: 28px;
   }
 `
 
@@ -49,7 +51,7 @@ export const ButtonContainer = styled.div `
   padding: 3px 133px;
   gap: 10px;
   position: absolute;
-  margin-left: 10vw;
+  margin-left: 11vw;
   cursor: pointer;
 
   button {
@@ -57,6 +59,7 @@ export const ButtonContainer = styled.div `
     background-color: transparent;
     border: none;
     color: white;
+    cursor: pointer;
   }
 
   &:hover {
@@ -78,8 +81,7 @@ export const ButtonContainer2 = styled.div `
   gap: 10px;
   position: absolute;
   margin-top: 6vw;
-  margin-left: 10vw;
-
+  margin-left: 11.3vw;
   cursor: pointer;
 
   button {
@@ -87,6 +89,7 @@ export const ButtonContainer2 = styled.div `
     background-color: transparent;
     border: none;
     color: #FE7E02;
+    cursor: pointer;
   }
 
   &:hover{
