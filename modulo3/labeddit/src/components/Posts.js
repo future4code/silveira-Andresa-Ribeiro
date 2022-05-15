@@ -1,4 +1,4 @@
-import { Card, DivBotoesPosts, Icones, Icon } from "./styles"
+import { Card, DivBotoesPosts, Headers, Icon } from "./stylesPosts"
 import GlobalStateContext from "../global/GlobalStateContext"
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -75,17 +75,20 @@ const Posts = (props) => {
 
     return (
         <Card key={props.post.id}>
+            <Headers>
             <span>Enviado por: {props.post.username}</span>
-            <h3>{props.post.title}</h3>
+            <h3>{props.post.title.toUpperCase()}</h3>
             <p>{props.post.body}</p>
+            </Headers>
+            
             <DivBotoesPosts>
-                <Icones onClick={createLikeVote}>{props.post.userVote === 1 ? <Icon src={LikeClicked} alt="like" /> : <Icon src={Like} alt="like" />}</Icones>
+                <DivBotoesPosts onClick={createLikeVote}>{props.post.userVote === 1 ? <Icon src={LikeClicked} alt="like" /> : <Icon src={Like} alt="like" />}</DivBotoesPosts>
                 {props.post.voteSum === null ? <span>0</span> : <span>{props.post.voteSum}</span>}
-                <Icones onClick={createDislikeVote}>{props.post.userVote === -1 ? <Icon src={DislikeClicked} alt="dislike" /> : <Icon src={Dislike} alt="dislike" />}</Icones>
+                <DivBotoesPosts onClick={createDislikeVote}>{props.post.userVote === -1 ? <Icon src={DislikeClicked} alt="dislike" /> : <Icon src={Dislike} alt="dislike" />}</DivBotoesPosts>
 
                 <DivBotoesPosts onClick={() => goToPostPage(navigate, props.post.id)}>
-                <Icones><Icon src={Comments} alt="comments" /></Icones>
-                {props.post.commentCount > 1 ? <span>{props.post.commentCount} comentários</span> : <span>{props.post.commentCount} comentário</span>}
+                <DivBotoesPosts><Icon src={Comments} alt="comments" /></DivBotoesPosts>
+                {props.post.commentCount > 1 ? <span>{props.post.commentCount} Comentários</span> : <span>{props.post.commentCount} Comentário</span>}
             </DivBotoesPosts>
             </DivBotoesPosts>
 

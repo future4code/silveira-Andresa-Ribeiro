@@ -7,9 +7,8 @@ import { url } from "../../constants/Url";
 import Posts from "../../components/Posts";
 import {useForm} from "../../hooks/useForm";
 import Loading from "../../assets/Loading.gif";
-import { Body, InputBody, Header, Button } from './styles';
+import { Body, Container, Header, Button } from './styles';
 import Logo from '../../assets/logo.png';
-
 
 export default function FeedPage() {
   const navigate = useNavigate();
@@ -29,11 +28,11 @@ export default function FeedPage() {
     axios
       .post(`${url}/posts`, form, headers)
       .then((res) => {
-        alert(`Post adicionado com sucesso!`);
+        alert("Post adicionado com sucesso!");
         clear();
       })
       .catch((error) => {
-        alert(error);
+        alert("deu erro");
       });
   };
 
@@ -53,7 +52,7 @@ export default function FeedPage() {
   });
 
   return (
-    <div>
+    <Container>
       <Header>
       <img src={Logo}></img>
 
@@ -82,11 +81,13 @@ export default function FeedPage() {
             value={form.body}
           />
 
-          <Button type='submit'>Postar</Button>
+          <button type='submit'>Postar</button>
         </form>
+
+        <div>{postList.length > 0 ? postList : <img src={Loading} alt="Loading" />}</div>
+
       </Body>
 
-      <div>{postList.length > 0 ? postList : <img src={Loading} alt="Loading" />}</div>
-    </div>
+    </Container>
   );
 }

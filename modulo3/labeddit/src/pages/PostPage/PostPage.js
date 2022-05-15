@@ -4,10 +4,11 @@ import { useParams, useNavigate } from 'react-router-dom'
 import GlobalStateContext from "../../global/GlobalStateContext"
 import { url } from "../../constants/Url"
 import { goToFeedPage } from '../../routes/Coordinator'
-import { Detalhes, Comentarios, DivForm, StyledForm, Textarea, DivBody } from './styles'
+import { Details, DetailsText, DivComments, Body, Input, Container, Header, Button } from './styles'
 import {useForm} from '../../hooks/useForm'
 import Comments from '../../components/Comments'
 import Loading from "../../assets/Loading.gif"
+import Logo from "../../assets/logo.png"
 
 export default function Post() {
   const navigate = useNavigate();
@@ -68,11 +69,11 @@ export default function Post() {
 
   const postDetails = postInfo && postInfo.map((post) => {
     return (
-      <div key={post.id} bg={"light"}>
+      <DetailsText key={post.id}>
         <div as={"span"}>Enviado por: {post.username}</div>
         <div>{post.title}</div>
-        <div>{post.body}</div>
-      </div>
+        <p>{post.body.toUpperCase()}</p>
+      </DetailsText>
     )
   })
 
@@ -84,17 +85,23 @@ export default function Post() {
 
   return (
 
-    <DivBody>
-      <button variant='dark' onClick={() => goToFeedPage(navigate)} style={{ alignSelf: "center", margin: "20px" }}>Voltar</button>
+    <Container>
+      <Header>
+      <img src={Logo}></img>
+      <button onClick={() => goToFeedPage(navigate)}>Voltar</button>
+      </Header>
+      
       {loading && postDetails ?
         <>
-          <Detalhes>
+        <Body>
+          <Details>
             {postDetails}
-          </Detalhes>
-          <DivForm>
-            <StyledForm onSubmit={createComment}>
-              <label htmlFor="body"></label>
-              <Textarea
+          </Details>
+          
+            <Body onSubmit={createComment}>
+              <label></label>
+
+              <Input
                 type="text"
                 name='body'
                 placeholder='Comentario'
@@ -102,15 +109,17 @@ export default function Post() {
                 value={form.body}
                 required
               />
-              <button variant='dark' type="submit">Enviar</button>
-            </StyledForm>
-          </DivForm>
-          <Comentarios>
-            {commentsMap.length === 0 ? <div bg="secondary"><div>Sem comentários</div></div> : commentsMap}
-          </Comentarios>
+
+              <Button type="submit">Enviar</Button>
+            </Body>
+
+          <DivComments>
+            {commentsMap.length === 0 ? <div>Sem comentários</div> : commentsMap}
+          </DivComments>
+          </Body>
         </>
         : <img src={Loading} alt="Loading" style={{width: "320px", margin: "auto"}}/>}
-    </DivBody>
+    </Container>
 
   )
 }

@@ -29,7 +29,7 @@ const GlobalState = (props) => {
     
     useEffect(() => {
             getPosts();
-    }, [])
+    }, [comments])
 
     const states = {posts, comments, postInfo}
     const setters = {setPosts, setComments, setPostInfo}
