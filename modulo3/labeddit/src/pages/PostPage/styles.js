@@ -44,7 +44,7 @@ p {
 export const DivComments = styled.div`
     box-shadow: #FAB253 0px 0px 7px 4px;
     width: 40vw;
-    margin-top: 5vh;;
+    margin-top: 8vh;
     margin-right: 7vw;
     word-wrap: break-word;
     padding: 2vw;
@@ -85,18 +85,29 @@ export const Body = styled.div `
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 3px 30px;
+  padding: 2px 20px;
   gap: 10px;
   position: absolute;
-  margin-left: 12vw;
+  margin-left: 14vw;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -6vh;
   cursor: pointer;
+
+  &:hover {
+        cursor: pointer;
+        transition: all 800ms;
+        transform: scale(1.1);
+    }
   }
 `
 
+
 export const Input = styled.textarea `
     width: 35vw;
-    margin-right: 5vw;
-    margin-bottom: 4vw;
+    margin-right: 9vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
     min-height: 20vh;
     border: #FAB253 1px solid;
     box-shadow: #FAB253 0px 0px 7px 4px;
@@ -147,34 +158,3 @@ export const Header = styled.div`
   }
 `;
 
-export const Button = styled.div`
-  background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
-  color: white;
-  font-size: 19px;
-  font-weight: bold;
-  border-radius: 27px;
-  height: 8vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 3px 30px;
-  gap: 10px;
-  position: absolute;
-  margin-top: 30vh;
-  margin-right: 10vh;
-  cursor: pointer;
-
-  button {
-    text-align: center;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-
-  &:hover {
-        cursor: pointer;
-        transition: all 800ms;
-        transform: scale(1.1);
-    }
-`;

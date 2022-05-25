@@ -38,7 +38,7 @@ export const ButtonContainer = styled.div `
   padding: 3px 100px;
   gap: 10px;
   position: absolute;
-  margin-top: 11vw;
+  margin-top: 18vw;
   cursor: pointer;
 
   button {
@@ -67,7 +67,7 @@ export const ButtonContainer2 = styled.div `
   padding: 3px 50px;
   gap: 10px;
   position: absolute;
-  margin-top: 3vw;
+  margin-top: 7vw;
   margin-left: 17vw;
   cursor: pointer;
 
@@ -88,8 +88,7 @@ export const ButtonContainer2 = styled.div `
 
 export const Checkbox = styled.div `
     text-align: center;
-    margin-right: 26vw;
-    margin-top: 18vh;
+
     border-radius: 0px;
     background-color: #ffffff;
     font-family: 'noto-sans';

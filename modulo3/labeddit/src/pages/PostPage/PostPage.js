@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import GlobalStateContext from "../../global/GlobalStateContext"
 import { url } from "../../constants/Url"
 import { goToFeedPage } from '../../routes/Coordinator'
-import { Details, DetailsText, DivComments, Body, Input, Container, Header, Button } from './styles'
+import { Details, DetailsText, DivComments, Body, Input, Container, Header, Form, Button } from './styles'
 import {useForm} from '../../hooks/useForm'
 import Comments from '../../components/Comments'
 import Loading from "../../assets/Loading.gif"
@@ -98,7 +98,7 @@ export default function Post() {
             {postDetails}
           </Details>
           
-            <Body onSubmit={createComment}>
+            <form onSubmit={createComment}>
               <label></label>
 
               <Input
@@ -110,8 +110,8 @@ export default function Post() {
                 required
               />
 
-              <Button type="submit">Enviar</Button>
-            </Body>
+              <button type="submit">Enviar</button>
+            </form>
 
           <DivComments>
             {commentsMap.length === 0 ? <div>Sem comentários</div> : commentsMap}
