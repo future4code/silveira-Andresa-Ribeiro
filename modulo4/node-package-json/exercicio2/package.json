@@ -1,0 +1,13 @@
+{
+    "name": "node-package-json",
+    "version": "1.0.0",
+    "description": "Primeiros códigos do módulo de backend",
+    "main": "index.js",
+    "scripts": {
+      "start": "clear && node exercicio2.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Andresa",
+    "license": "ISC"
+  }
+  

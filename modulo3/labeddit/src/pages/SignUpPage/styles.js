@@ -88,8 +88,7 @@ export const ButtonContainer2 = styled.div `
 
 export const Checkbox = styled.div `
     text-align: center;
-    margin-right: 26vw;
-    margin-top: 18vh;
+
     border-radius: 0px;
     background-color: #ffffff;
     font-family: 'noto-sans';
