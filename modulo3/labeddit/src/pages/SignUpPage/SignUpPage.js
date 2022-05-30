@@ -10,7 +10,7 @@ export default function SignUpPage() {
   const navigate = useNavigate();
 
   const { form, onChange, clear } = useForm({
-    user: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -40,8 +40,8 @@ export default function SignUpPage() {
         <InputsContainer>
           <input
             placeholder="Nome de usuário"
-            name="user"
-            value={form.user}
+            name="username"
+            value={form.username}
             onChange={onChange}
             pattern={"^.{4,}"}
             title="O nome precisa ter no mínimo 4 caracteres."
@@ -72,12 +72,6 @@ export default function SignUpPage() {
             required
           />
 
-          <ButtonContainer>
-            <button onClick={() => navigate}>Cadastrar</button>
-          </ButtonContainer>
-        </InputsContainer>
-      </form>
-
       <Checkbox>
       <p>
         Ao continuar, você concorda com o nosso <span>Contrato de usuário</span>{" "}
@@ -86,8 +80,14 @@ export default function SignUpPage() {
 
       <input type="checkbox"></input> Eu concordo em receber emails sobre coisas legais no Labeddit
       </Checkbox>
-      
 
+          <ButtonContainer>
+            <button onClick={() => navigate}>Cadastrar</button>
+          </ButtonContainer>
+        </InputsContainer>
+      </form>
+
+      
       <ButtonContainer2>
         <button onClick={() => goToLogin(navigate)}>Voltar</button>
       </ButtonContainer2>
