@@ -1,4 +1,4 @@
-function tipo(nome: string) {
+function tipo(nome: any) {
     return typeof nome
 }
 
