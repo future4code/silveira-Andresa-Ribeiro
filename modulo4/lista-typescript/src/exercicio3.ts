@@ -1,7 +1,7 @@
 type Infos = {
     nome: string,
     anoLancamento: number,
-    genero: string,
+    genero: GENERO,
     pontuacao?: number
 }
 
@@ -14,11 +14,22 @@ enum GENERO {
     FICCAO="ficção científica"
 }
 
-const filme: Infos = {
-    nome: "Interstellar",
-    anoLancamento: 2014,
-    genero: GENERO.FICCAO,
-    pontuacao: 86
+function filme(pontuacao?: number): Infos = {
+	    if (pontuacao) {
+		 return {
+    nome: nome,
+    anoLancamento: anoLancamento,
+    genero: genero,
+    pontuacao: pontuacao
+	}
+} else {
+	return {
+	nome: nome,
+    anoLancamento: anoLancamento,
+    genero: genero,
+}
+}
 }
 
-console.log(filme)
+console.log(filme("Interstellar", 2014, GENERO.FICCAO, 86));
+console.log(filme("Interstellar", 2014, GENERO.FICCAO));
