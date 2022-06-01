@@ -21,7 +21,17 @@ const ajustaPreco = (preco: number): string => {
 
 const correcaoLista = dadosEstoques.map((item) => {
     const valorUnitario = ajustaPreco(item.valorUnitario as number)
-    return [item.nome, item.quantidade, item.valorUnitario]
+    
+    const estoqueOrdenado = dadosEstoques.sort((a, b) => {
+	    if (a.quantidade > b.quantidade) {
+		    return 1
+	    } else if (a.quantidade < b.quantidade) {
+		    return -1
+	    } else {
+		    return 0
+	    }
+})
+    return estoqueOrdenado
 })
 
-console.log(correcaoLista)
+console.table(correcaoLista(dadosEstoques))
