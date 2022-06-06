@@ -149,27 +149,6 @@ app.put("/users/add-balance", (request: Request, response: Response) => {
     }
 })
 
-
-app.put("/user/payment", (request: Request, response: Response) => {
-    let errorCode = 400
-
-    try {
-        const name = request.body.name
-        const cpf = request.body.cpf
-        const balance = request.body.balance
-        const statement = request.body.statement
-
-
-    } catch (error: any) {
-
-    }
-})
-
-
-
-
-
-
 app.listen(3003, () => {
     console.log("Servidor ligado, rodando na porta 3003!")
 })
