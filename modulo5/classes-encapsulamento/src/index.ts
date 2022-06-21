@@ -4,7 +4,7 @@ import app from "./app";
 
 /* A) Construtores são basicamente funções de criação, atualização ou inicialização de uma classe, as quais são invocadas no momento em que objetos desta classe são criadas.
 A principal utilidade de se implementar o construtor do objeto é exigir parâmetros sem os quais o objeto não pode viver sem, sem os quais ele não faz sentido.
-Podemos chamá-lo através de uma nova instancia referenciada usando new e o "nome da classe".
+Podemos chamá-lo através de uma nova instancia referenciada usando o new e o "nome da classe".
 
 B)
 
@@ -44,11 +44,11 @@ class Transaction {
     private value: number
     private date: string
 
-    constructor(description: string, date: string, value: number) {
+    constructor(description: string, value: number, date: string) {
         console.log("Chamando o construtor da classe UserAccount")
         this.description = description;
-        this.date = date;
         this.value = value;
+        this.date = date;
     }
 
     public getDescription(): string {
@@ -70,12 +70,12 @@ class UserAccount {
     private age: number;
     private balance: number = 0;
     private transactions: Transaction[] = [];
-  
+
     constructor(cpf: string, name: string, age: number) {
-       console.log("Chamando o construtor da classe UserAccount")
-       this.cpf = cpf;
-       this.name = name;
-       this.age = age;
+        console.log("Chamando o construtor da classe UserAccount")
+        this.cpf = cpf;
+        this.name = name;
+        this.age = age;
     }
 
     public getCpf(): string {
@@ -97,15 +97,40 @@ class UserAccount {
     public getTransactions(): Transaction[] {
         return this.transactions
     }
+
+    public setTransactions(newTransaction: Transaction): void {
+        this.transactions.push(newTransaction)
+    }
 }
+
+const newUser = new UserAccount(
+    "01234567891",
+    "Andresa",
+    27
+)
+const newTransaction = new Transaction(
+    "Pagar boleto",
+    300,
+    "20/06/2022"
+)
+
+newUser.setTransactions(newTransaction)
+console.log(newUser.getTransactions())
+
 
 // EXERCÍCIO 3
 
 class Bank {
-  private accounts: UserAccount[];
+    private accounts: UserAccount[];
 
-  constructor(accounts: UserAccount[]) {
-    this.accounts = accounts;
-  }
+    constructor(accounts: UserAccount[]) {
+        this.accounts = accounts;
+    }
 
+    public setAccounts(newAccount: UserAccount): void {
+        this.accounts.push(newAccount)
+    }
+    public getAccounts(): UserAccount[] {
+        return this.accounts
+    }
 }
