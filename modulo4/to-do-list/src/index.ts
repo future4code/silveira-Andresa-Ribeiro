@@ -31,6 +31,7 @@ const server = app.listen(3003, () => {
 const createUser = async (name: string, nickname: string, email: string): Promise<any> => {
     await connection("ToDoListUser")
         .insert({
+            id: Date.now(),
             name: name,
             nickname: nickname,
             email: email
