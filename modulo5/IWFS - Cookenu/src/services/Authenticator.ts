@@ -1,4 +1,9 @@
-import { sign, verify } from "jsonwebtoken"
+import { sign, verify, Jwt } from "jsonwebtoken"
+import dotenv from "dotenv"
+
+dotenv.config();
+
+const expiresIn = "30min"
 
 export interface AuthenticationData {
     id: string
@@ -7,10 +12,14 @@ export interface AuthenticationData {
 export class Authenticator {
 
     generateToken = (payload: AuthenticationData) => {
-        const token = sign(
-            {payload},
-            process.env.JWT_KEY as string,
-            {expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN}
+        const token = sign (
+            {
+                id: payload.id,
+            },
+        
+              process.env.JWT_KEY as string,
+        
+              { expiresIn }
         )
 
         return token
@@ -23,7 +32,7 @@ export class Authenticator {
                 process.env.JWT_KEY as string
             ) as any
 
-            return tokenData.payload
+            return tokenData
             
         } catch (error) {
             console.log(error)
