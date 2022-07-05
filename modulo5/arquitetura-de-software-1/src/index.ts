@@ -1,8 +1,12 @@
 import { app } from './app'
-import { deleteUser, get, login, signup } from "./controllers/UserController";
+import { UserController } from './controllers/UserController'
 
-app.post("/signup", signup);
-app.post("/login", login);
-app.get("/all", get);
-app.delete("/:id", deleteUser);
+const userController = new UserController()
+
+app.post('/signup', userController.signUp)
+app.post('/login', userController.loginUser)
+
+app.get('/all', userController.getAllUsers)
+
+app.delete('/:id', userController.deleteUser)
 

@@ -3,22 +3,32 @@ export enum USER_ROLES {
     ADMIN = 'ADMIN'
 }
 
-export type AuthenticationData = {
-    id: string,
-    role: USER_ROLES
-}
+export class User {
+    constructor (
+        private id: string,
+        private name: string,
+        private email: string,
+        private password: string,
+        private role: USER_ROLES
+    ) {}
 
-export type user = {
-    id: string,
-    name: string,
-    email: string,
-    password: string,
-    role: USER_ROLES
-}
+    getId() {
+        return this.id
+    }
+    getName() {
+        return this.name
+    }
+    getEmail() {
+        return this.email
+    }
+    getPassword() {
+        return this.password
+    }
+    getRole() {
+        return this.role
+    }
 
-export type userInput = {
-    name: string,
-    email: string,
-    password: string,
-    role: USER_ROLES
+    static toUserModel(data:any): User {
+        return new User(data.id, data.name, data.email, data.password, data.role)
+    }
 }

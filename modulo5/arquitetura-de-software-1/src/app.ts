@@ -1,5 +1,4 @@
 import express from "express";
-
 import { AddressInfo } from "net";
 
 export const app = express();

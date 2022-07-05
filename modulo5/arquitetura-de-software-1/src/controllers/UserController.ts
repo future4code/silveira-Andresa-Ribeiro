@@ -1,74 +1,58 @@
-import { USER_ROLES } from '../types/user';
-import { UserBusiness } from '../business/userBusiness';
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
+import { UserBusiness } from "../business/UserBusiness";
+import { UserDatabase } from "../data/UserDatabase";
+import { Authenticator } from "../services/Authenticator";
 
-export async function signup(req: Request, res: Response) {
-    try {
-        const input = {
-            email: req.body.email as string,
-            name: req.body.name as string,
-            password: req.body.password as string,
-            role: req.body.role as USER_ROLES
+
+export class UserController {
+    async signUp (req: Request, res: Response) {
+        try {
+            const {name, email, password, role} = req.body
+
+            const token = await new UserBusiness().createUser(name, email, password, role)
+
+            res.status(200).send({token})
+        } catch (error:any) {
+            res.status(400).send({message: error.message || error.sqlMessage})
         }
-        const user_Business = new UserBusiness;
-        const token = await user_Business.createUser(input);
-
-        res.status(200).send({ token });
-
-    } catch (error: any) {
-        res.status(400).send({ error: error.message });
     }
 
-}
+    async loginUser (req: Request, res: Response) {
+        try {
+            const {email, password} = req.body
 
-export async function get(req: Request, res: Response) {
+            const token = await new UserBusiness().login(email, password)
 
-    try {
-        const token = req.headers.authorization!;
-        const user_Business = new UserBusiness;
-        const users = await user_Business.get(token);
-
-        res.send(users).status(200);
-
-    } catch (error: any) {
-        res.send({ message: error.message }).status(error.status);
-    }
-}
-
-export async function login(req: Request, res: Response) {
-
-    try {
-
-        const loginData = {
-            email: req.body.email as string,
-            password: req.body.password as string
-        };
-
-        const user_Business = new UserBusiness;
-        const token = await user_Business.getUserByEmail(loginData);
-
-        res.status(200).send({ token });
-
-    } catch (error: any) {
-        res.status(400).send({ error: error.message });
-    }
-}
-
-export async function deleteUser(req: Request, res: Response) {
-
-
-    try {
-        const input = {
-            id: req.params.id,
-            token: req.headers.authorization!
+            res.status(200).send({token})
+        } catch (error:any) {
+            res.status(400).send({message: error.message || error.sqlMessage})
         }
-        const user_Business = new UserBusiness;
-        await user_Business.deleteUser(input);
-
-        res.status(200).send({ message: "Usuário apagado com sucesso" });
-
-    } catch (error: any) {
-        res.status(400).send({ error: error.message });
     }
 
+    async getAllUsers (req: Request, res: Response) {
+        try {
+            const token = req.headers.authorization as string
+
+            const users = await new UserBusiness().getEveryone(token)
+
+           res.status(200).send(users)
+
+        } catch (error:any) {
+            res.status(400).send({message: error.message || error.sqlMessage})
+        }
+    }
+
+    async deleteUser (req: Request, res: Response) {
+        try {
+
+            const token = req.headers.authorization as string
+            const id = req.params.id as string
+
+            const user = await new UserBusiness().deleteUser(token, id)
+
+            res.status(200).send(user)
+        } catch (error:any) {
+            res.status(400).send({message: error.message || error.sqlMessage})
+        }
+    }
 }

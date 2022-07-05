@@ -1,73 +1,109 @@
-import { userInput } from './../types/user';
-import { compare } from './../services/hashManager';
-import { generateToken, getTokenData } from '../services/authenticator';
-import { hash } from '../services/hashManager';
-import { generateId } from '../services/idGenerator';
-import { UserData } from '../data/UserDatabase';
+import { UserDatabase } from "../data/UserDatabase";
+import { User, USER_ROLES } from "../types/user";
+import { Authenticator } from "../services/Authenticator";
+import { generateId } from "../services/idGenerator";
+import { HashManager }from '../services/HashManager'
+
 
 export class UserBusiness {
-    async createUser(user: userInput) {
-
+    async createUser (name: string, email: string, password: string, role: USER_ROLES) {
         try {
-            if (!user.name || !user.email || !user.password || !user.role) {
-                throw new Error("Preencha todos os campos!");
+
+            if(!name || !email || !password || !role) {
+                throw new Error("Preencha todos os campos.");
+
             }
 
-            if (user.email.indexOf("@") === -1) {
-                throw new Error("Email Inválido");
+            if(email.indexOf("@") === -1){
+                throw new Error("Email Inválido!");
             }
 
-            if (user.password.length < 6) {
-                throw new Error("Senha deve ter no mínimo 6 caracteres!");
-            }
+            const id: string = generateId()
 
-            const id = generateId();
-            const hashPassword = await hash(user.password);
-            const userData = new UserData();
-            await userData.createUser(id, user.email, user.name, hashPassword, user.role);
-            const role = user.role;
-            const token = generateToken({ id, role });
+            const hashPassword = new HashManager().createHash(password)
 
-            return token;
+            const authenticator = new Authenticator()
+            const token = authenticator.generateToken({ id, role })
+
+
+            await new UserDatabase().insertUser(id, name, email, hashPassword, role)
+
+            return token
 
         } catch (error: any) {
-            throw new Error(error.message || "Erro ao criar usuário. Verifique com o administrador!");
+
+            return {message: error.sqlMessage || error.message}
+
         }
     }
 
+    async login (email: string, password: string) {
+        try {
 
-    async get(token: string) {
-        getTokenData(token);
-        const userData = new UserData();
-        return await userData.get();
+            if(!email || !password) {
+                throw new Error("Preencha todos os campos.");
+            }
+
+            const userData = await new UserDatabase().getUserByEmail(email)
+            console.log(userData)
+            if(!userData) {
+                throw new Error("Usuário não cadastrado!");
+            }
+
+            const correctPassword: boolean = new HashManager().compareHash(password, userData.password)
+
+            const authenticator = new Authenticator()
+            const token = authenticator.generateToken({ id: userData.id, role: userData.role })
+
+            if(!correctPassword) {
+                throw new Error("Senha incorreta!");
+            }
+
+            return token
+
+        } catch (error:any) {
+            return {message: error.sqlMessage || error.message}
+        }
     }
 
-    async getUserByEmail(user: any) {
+    async getEveryone (token: string) {
+        try {
+            if(!token) {
+                throw new Error("Cadê o token?");
+            }
 
-        const userDatabase = new UserData;
+            const tokenData = new Authenticator().getTokenData(token)
 
-        const userFromDB = await userDatabase.getUserByEmail(user.email);
+            if (!tokenData) {
+                throw new Error("Token Inválido");
+            }
 
-        const hashCompare = await compare(user.password, userFromDB.getPassword());
+            const userData = await new UserDatabase().getAllUsers()
 
-        const accessToken = generateToken({ id: userFromDB.getId(), role: user.role });
+            if(!userData) {
+                throw new Error("Usuário não encontrado.");
+            }
 
-        if (!hashCompare) {
-            throw new Error("Senha Inválida!");
+            return userData
+
+        } catch (error: any) {
+            return {message: error.sqlMessage || error.message}
         }
-
-        return accessToken;
     }
 
-    async deleteUser(input: { id: string, token: string }) {
+    async deleteUser (token: string, id: string) {
+        try {
 
-        const verifiedToken = getTokenData(input.token);
+            const verifyToken = new Authenticator().getTokenData(token)
 
-        if (verifiedToken.role !== "ADMIN") {
-            throw new Error("Apenas administradores podem deletar usuários!")
+            if(verifyToken.role !== "ADMIN") {
+                throw new Error("Soemnte ADMIN pode deletar usuário.");
+            }
+
+            return await new UserDatabase().deleteUSerById(id)
+
+        } catch (error:any) {
+            return {message: error.sqlMessage || error.message}
         }
-
-        const userDatabase = new UserData;
-        return await userDatabase.deleteUser(input.id);
     }
 }
