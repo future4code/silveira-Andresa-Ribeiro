@@ -1,19 +1,21 @@
-import { compareSync, genSaltSync, hashSync } from "bcryptjs"
+import * as bcrypt from "bcryptjs"
 
 
 export class HashManager {
 
-    createHash = (plainText: string): string => {
+    hash = async (plainText: string): Promise<string> => {
 
-        const cost = 12
-        const salt: string = genSaltSync(cost)
-        const cypherText: string = hashSync(plainText, salt)
+        const rounds = Number(process.env.BCRYPT_COST)
 
-        return cypherText
+        const salt = await bcrypt.genSaltSync(rounds)
+        
+        return bcrypt.hash(plainText, salt)
+
     }
 
 
-    compareHash = (plainText: string, cypherText: string): boolean => {
-        return compareSync(plainText, cypherText)
+    compare = async (plainText: string, cypherText: string): Promise<boolean> => {
+        return bcrypt.compare(plainText, cypherText)
     }
+    static compareHash: any
 }
