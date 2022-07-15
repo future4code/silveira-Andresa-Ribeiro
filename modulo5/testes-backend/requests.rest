@@ -1,0 +1,23 @@
+GET http://localhost:3003/users/profile/:id
+Authorization: "001"
+
+{
+    "id": "001",
+    "name": "Astrodev",
+    "email": "astrodev@gmail.com",
+    "role": "ADMIN"
+}
+
+###
+
+
+GET http://localhost:3003/users/all
+
+###
+
+
+GET http://localhost:3003/users/profile
+
+###
+
+
