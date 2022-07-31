@@ -15,7 +15,7 @@ Case de um projeto back-end simulando as funcionalidades de um banco digital: Ab
 
 <p>Wirecard Backend Challenge.</p>
 
-<h2 id="link">🔗 Link API:</h2>
+<h2 id="link">🔗 Link API Postman: https://documenter.getpostman.com/view/20352321/Uze1uj2P</h2>
 
 <a href="">Wirecard</a>
 
