@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {deepOrange} from '@mui/material/colors';
+import { deepOrange } from '@mui/material/colors';
 
 export default function AboutUsModal(props) {
     const style = {
@@ -29,7 +29,7 @@ export default function AboutUsModal(props) {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h5" component="h2" sx={{ p: 2 }}>
-                        Karen - Pizzaria Artesanal
+                        Pizzaria Artesanal
                     </Typography>
                     <Typography id="modal-modal-description" variant="subtitle1" component="h2" sx={{ p: 2 }}>
                         Site e API desenvolvida com: React.JS, Node.JS, Javascript, Typescript, Material-UI, Styled-components, Knex, Express.JS, Axios, POO, arquitetura em camadas, criptografia e clean code.

@@ -17,9 +17,7 @@ export const Feed = () => {
     localStorage.getItem("token") !== null ? getPizzas() : goToLogin(navigate);
   }, []);
 
-  const allPizzas =
-    pizzas &&
-    pizzas.map((pizza) => {
+  const allPizzas = pizzas && pizzas.map((pizza) => {
       return (
         <PizzaCards
           id={pizza.id}

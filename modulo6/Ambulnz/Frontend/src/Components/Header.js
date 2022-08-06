@@ -68,7 +68,7 @@ const ResponsiveAppBar = (props) => {
                             p: 1,
                             display: { xs: 'none', md: 'flex' }, mr: 1
                         }}
-                        alt="Karen Pizzaria Artesanal"
+                        alt="Pizzaria Artesanal"
                         src={Logo}
                     />
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -121,7 +121,7 @@ const ResponsiveAppBar = (props) => {
                             display: { xs: 'flex', md: 'none' },
                             marginRight: "33%"
                         }}
-                        alt="Karen Pizzaria Artesanal"
+                        alt="Pizzaria Artesanal"
                         src={Logo}
                     />
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-image: url("./Assets/wood.webp")
+    font-family: 'Cinzel', sans-serif;
+    background-image: url("./Assets/pizza-background2.png");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    overflow: hidden;
 }

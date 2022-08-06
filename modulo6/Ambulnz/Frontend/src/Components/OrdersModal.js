@@ -23,11 +23,8 @@ export default function OrdersModal(props) {
         flexDirection: "column",
         alignItems: "center"
     };
-
     const { states, requests } = useContext(GlobalStateContext);
-
     const { getOrdersHistory } = requests;
-    
     const { orders } = states;
 
     useEffect(() => {
