@@ -15,7 +15,3 @@ If you try to register with the sum of the existing ones, exceed 100%, you will 
 ## Built With
 
 * [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript
-
-## Authors
-
-* **Vinícius Felisberto** - *Front-end and Back-end* - [vifelisberto](https://github.com/vifelisberto)
