@@ -1,12 +1,12 @@
 import { CustomError } from './../Error/CustomError';
-import { User, InputLogin, UserOrders } from './../Model/User';
+import { User, UserOrders } from './../Model/User';
 import { BaseDatabase } from './BaseDatabase';
 
 export class UserData extends BaseDatabase {
     signup = async (input: User) => {
         try {
             await UserData
-                .connection(`Users`)
+                .connection(`Ambulnz_Users`)
                 .insert({
                     id: input.getId(),
                     name: input.getName(),
@@ -21,7 +21,7 @@ export class UserData extends BaseDatabase {
     findUser = async (email:string) => {
         try {
             const user = await UserData
-                .connection(`Users`)
+                .connection(`Ambulnz_Users`)
                 .select()
                 .where({ email });
             return user[0];

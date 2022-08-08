@@ -25,7 +25,7 @@ const userController = new UserController(
 app.post("/user/signup", userController.signUp);
 app.post("/user/login", userController.login);
 app.post("/user/order", userController.order);
-app.get("/user/order", userController.history);
+app.get("/user/history", userController.history);
 
 //Pizza
 
@@ -37,8 +37,8 @@ const pizzaController = new PizzaController(
     pizzaBusiness
 );
 
-app.post("/pizza", pizzaController.createPizza);
-app.post("/ingrediente", pizzaController.createIngredient);
-app.post("/pizza/ingredientes", pizzaController.addIngredientsToPizza);
+app.post("/create/pizza", pizzaController.createPizza);
+app.post("/create/ingrediente", pizzaController.createIngredient);
+app.post("/add/ingredientes", pizzaController.addIngredientsToPizza);
 app.get("/pizza", pizzaController.getAllPizzas);
 app.get("/pizza/:id", pizzaController.getPizzaById);

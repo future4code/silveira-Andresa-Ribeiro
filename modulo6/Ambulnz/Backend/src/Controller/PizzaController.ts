@@ -6,7 +6,7 @@ export class PizzaController {
         private pizzaBusiness:PizzaBusiness
     ) {};
 
-    createPizza =async (req: Request, res: Response) => {
+    createPizza = async (req: Request, res: Response) => {
         const { name, price, photo_link } = req.body;
         const data = {name, price, photo_link};
         try {
@@ -22,7 +22,7 @@ export class PizzaController {
         }
     };
     
-    createIngredient =async (req: Request, res: Response) => {
+    createIngredient = async (req: Request, res: Response) => {
         const {name} = req.body;
         try {
             const results = await this.pizzaBusiness.createIngredient(name);
@@ -37,7 +37,7 @@ export class PizzaController {
         }
     };
 
-    addIngredientsToPizza =async (req: Request, res: Response) => {
+    addIngredientsToPizza = async (req: Request, res: Response) => {
         const {pizza_id, ingredient_id} = req.body;
         const data = {pizza_id, ingredient_id};
         try {
@@ -53,7 +53,7 @@ export class PizzaController {
         }
     };
 
-    getAllPizzas =async (req: Request, res: Response) => {
+    getAllPizzas = async (req: Request, res: Response) => {
         try {
             const results = await this.pizzaBusiness.getAllPizzas();
             res.status(200).send(results);
@@ -67,7 +67,7 @@ export class PizzaController {
         }
     };
 
-    getPizzaById =async (req: Request, res: Response) => {
+    getPizzaById = async (req: Request, res: Response) => {
         const id = req.params.id as string;
         try {
             const results = await this.pizzaBusiness.getPizzaById(id);
