@@ -9,17 +9,21 @@ import Typography from '@mui/material/Typography';
 
 export default function Footer() {
     return (
-        <BottomNavigation sx={{ width: "100%", backgroundColor: "black", minHeight:"15%", boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px' }}>
+        <BottomNavigation sx={{ width: "100%", backgroundColor: "dark-grey", minHeight:"15%" }}>
             <Container width="100%" sx={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
-                <Typography id="modal-modal-title" variant="h5" component="h2" color={"primary"}>
+
+                <Typography id="modal-modal-title" variant="h6" component="h2" color={"black"}>
                     © 2022 Andresa Alves Ribeiro
                 </Typography>
+
                 <Link href="https://github.com/andresa-alves-ribeiro">
                     <GitHubIcon fontSize="large"/>
                 </Link>
+
                 <Link href="email: andresa_15ga@hotmail.com" >
                     <EmailIcon fontSize="large"/>
                 </Link>
+
                 <Link href="https://www.linkedin.com/in/andresa-alves-ribeiro/">
                     <LinkedInIcon fontSize="large"/>
                 </Link>

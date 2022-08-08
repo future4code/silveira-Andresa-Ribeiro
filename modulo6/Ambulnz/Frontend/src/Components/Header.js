@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from "../Assets/logo.png";
-import { deepOrange } from '@mui/material/colors';
 import { goToLogin, goToPizzas } from './../Routes/coordinator';
 import { useNavigate } from 'react-router-dom';
 import AboutUsModal from './AboutUsModal';
@@ -20,11 +19,15 @@ import OrdersModal from './OrdersModal';
 
 const ResponsiveAppBar = (props) => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
     const navigate = useNavigate();
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
+
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
@@ -43,12 +46,16 @@ const ResponsiveAppBar = (props) => {
     }
 
     const [modalOpen, setModalOpen] = React.useState(false);
+
     const handleModalOpen = () => {
         setModalOpen(true);
         setAnchorElNav(null);
     };
+
     const handleModalClose = () => setModalOpen(false);
+
 //order
+
     const [OrderModalOpen, setOrderModalOpen] = React.useState(false);
     const handleOrderModalOpen = () => {
         setOrderModalOpen(true);
@@ -71,6 +78,7 @@ const ResponsiveAppBar = (props) => {
                         alt="Pizzaria Artesanal"
                         src={Logo}
                     />
+                    
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -104,7 +112,7 @@ const ResponsiveAppBar = (props) => {
                                 <Typography textAlign="center">Pizzas</Typography>
                             </MenuItem>
                             <MenuItem key={"About us"} onClick={handleModalOpen}>
-                                <Typography textAlign="center">About us</Typography>
+                                <Typography textAlign="center">Sobre</Typography>
                             </MenuItem>
                             <AboutUsModal
                                 open={modalOpen}
@@ -112,6 +120,7 @@ const ResponsiveAppBar = (props) => {
                             />
                         </Menu>
                     </Box>
+                    
                     <Box
                         component="img"
                         sx={{
@@ -138,7 +147,7 @@ const ResponsiveAppBar = (props) => {
                             onClick={handleModalOpen}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
-                            About us
+                            Sobre
                         </Button>
                         <AboutUsModal
                             open={modalOpen}
@@ -146,10 +155,10 @@ const ResponsiveAppBar = (props) => {
                         />
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box >
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar sx={{ bgcolor: deepOrange[500] }} src="/broken-image.jpg" />
+                                <Avatar sx={{ bgcolor: '#212121' }} src="/broken-image.jpg" />
                             </IconButton>
                         </Tooltip>
                         <Menu
