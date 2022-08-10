@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
 
 export const Main = styled.div`

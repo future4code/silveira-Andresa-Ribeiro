@@ -2,7 +2,7 @@
 
 <p>
 <a href="#sobre">Sobre</a> |
-<a href="#link">Link</a> |
+<a href="#links">Link</a> |
 <a href="#features">Features</a> |
 <a href="#tecnologias">Tecnologias</a> |
 <a href="#desenvolvedores">Desenvolvedora</a> |
@@ -14,10 +14,10 @@
 
 <p>Projeto full-stack simulando a criação de um site de pizzaria com armazenamento de dados!</p>
 
-<h2 id="link">🔗 Link API:</h2>
+<h2 id="links">🔗 Links:</h2>
 
 <a href="https://documenter.getpostman.com/view/20352321/VUjMq7CW">Ambulnz API</a>
-<a href="">Ambulnz Site [Em Construção]</a>
+<a href="prickly-toes.surge.sh">Ambulnz Site</a>
 
 <h2 id="features">✔️ Features</h2>
 
