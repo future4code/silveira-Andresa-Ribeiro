@@ -1,8 +1,8 @@
-// const number = [2, 2, 1]
+const number = [2, 2, 1]
 
-// const lonelyNumber = [... new Set(number)]
+const lonelyNumber = [... new Set(number)]
 
-// console.log(lonelyNumber)
+console.log(lonelyNumber)
 
 function findUnique(array: any) {
     const map = new Map()
@@ -16,5 +16,4 @@ function findUnique(array: any) {
     return undefined
   }
   
-  // console.log(findUnique([2, 2, 1, 5, 5]))
-  console.log(findUnique([4, 1 , 2, 1, 2]))
+  console.log(findUnique([4, 1 , 2, 1, 2])) 
