@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "./../../Hooks/useForm";
 import axios from "axios";
-import { BASE_URL } from "./../../Constants/BaseUrl";
-import { goToPizzas, goToLogin } from "./../../Routes/coordinator";
+import { url } from "./../../Constants/Url";
+import { goToList, goToLogin } from "./../../Routes/coordinator";
 import { Form, Main, Header, Button1, Title } from "../Login/styled";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
@@ -17,21 +17,21 @@ export const SignUp = () => {
     email: "",
     password: "",
   });
-  
+
   const MySwal = withReactContent(Swal);
 
   const signUp = (event) => {
     event.preventDefault();
 
     axios
-      .post(`${BASE_URL}/user/signup`, form)
+      .post(`${url}/user/signup`, form)
       .then((res) => {
         localStorage.setItem("token", res.data);
-        goToPizzas(navigate);
+        goToList(navigate);
       })
       .catch((err) => {
         MySwal.fire({
-          title: "Erro",
+          title: "Erro encontrado!",
           text: `${err.response.data.message}`,
           icon: "error",
           confirmButtonText: "Ok",

@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { deepOrange } from '@mui/material/colors';
 import { useContext } from 'react';
-import GlobalStateContext from './../Global/GlobalStateContext';
+import GlobalStateContext from '../Global/GlobalStateContext';
 import { useEffect } from 'react';
 
-export default function OrdersModal(props) {
+export default function Orders(props) {
     const style = {
         position: 'absolute',
         top: '50%',
@@ -59,7 +59,7 @@ export default function OrdersModal(props) {
                     }) : 
                     <Box sx={{ display: "flex", justifyContent: "space-around"}}>
                     <Typography id="modal-modal-title" variant="h6" component="h2" color={"primary"}>
-                        Nenhum pedido foi feito no momento!
+                        Nenhum pedido realizado!
                     </Typography>
                     </Box>
                     }

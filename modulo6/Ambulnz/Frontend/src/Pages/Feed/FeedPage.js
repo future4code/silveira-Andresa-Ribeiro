@@ -1,25 +1,29 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
-import ResponsiveAppBar from "../../Components/Header";
-import PizzaCards from "../../Components/PizzaCards";
+import HeaderBar from "../../Components/Header";
+import CardsPizza from "../../Components/CardsPizza";
 import { goToLogin } from "../../Routes/coordinator";
-import GlobalStateContext from "./../../Global/GlobalStateContext";
+import GlobalStateContext from "../../Global/GlobalStateContext";
 import { CardsDiv, Main } from "./styled";
 
-export const Feed = () => {
+export const FeedPage = () => {
   const navigate = useNavigate();
   const { states, requests } = useContext(GlobalStateContext);
-  const { getPizzas } = requests;
+  const { getAllPizzas } = requests;
   const { pizzas } = states;
 
   useEffect(() => {
-    localStorage.getItem("token") !== null ? getPizzas() : goToLogin(navigate);
+    localStorage.getItem("token") !== null
+      ? getAllPizzas()
+      : goToLogin(navigate);
   }, []);
 
-  const allPizzas = pizzas && pizzas.map((pizza) => {
+  const allPizzas =
+    pizzas &&
+    pizzas.map((pizza) => {
       return (
-        <PizzaCards
+        <CardsPizza
           id={pizza.id}
           name={pizza.name}
           photo_link={pizza.photo_link}
@@ -31,7 +35,7 @@ export const Feed = () => {
 
   return (
     <Main>
-      <ResponsiveAppBar />
+      <HeaderBar />
       <CardsDiv>{allPizzas}</CardsDiv>
       <Footer />
     </Main>

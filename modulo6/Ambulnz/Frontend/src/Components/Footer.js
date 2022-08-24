@@ -8,6 +8,7 @@ import { Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 export default function Footer() {
+    
     return (
         <BottomNavigation sx={{ width: "100%", backgroundColor: "dark-grey", minHeight:"15%" }}>
             <Container width="100%" sx={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>

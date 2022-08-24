@@ -10,7 +10,7 @@ const Div = styled.div`
 `;
 
 export const Divplay = styled.div`
-  width: 100vw;
+  width: 50vw;
   display: grid;
   justify-self: center;
   align-self: center;
@@ -19,8 +19,9 @@ export const Divplay = styled.div`
 const InputCriar = styled.input`
   display: flex;
   flex-direction: column;
-  margin: auto;
-  margin-top: -65px;
+  margin: 0 auto;
+  width: 15vw;
+  height: 4vh;
   :hover {
     border: 2px solid red;
   }
@@ -36,11 +37,11 @@ const PlaylistNome = styled.div`
     padding-left: 2px;
     padding-right: 3px;
   }
-`
+`;
 
 const Header = styled.h2`
   padding-top: 20px;
-  padding-bottom: 90px;
+  padding-bottom: 76px;
   padding-left: 50px;
   display: flex;
   flex-direction: column;
@@ -59,7 +60,13 @@ const ButtonDelet = styled.button`
   }
   width: 10vh;
   border-radius: 1px;
-  background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
   color: white;
   border: 1px solid rgb(107, 107, 107);
   border-radius: 5px;
@@ -76,9 +83,16 @@ const ButtonCreate = styled.button`
   :hover {
     box-shadow: 3px 5px 5px yellow;
   }
-  width: 10vh;
+  width: 15vh;
+  height: 4vh;
   border-radius: 1px;
-  background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
   color: white;
   border: 1px solid rgb(107, 107, 107);
   border-radius: 5px;
@@ -106,8 +120,6 @@ const Body = styled.div`
   display: flex;
   font-weight: bold;
   font-size: 5.2vh;
-  margin-top: 0px;
-  padding-top: 0px;
   padding-bottom: 42px;
   color: red;
 `;
@@ -203,29 +215,30 @@ export default class CriarPlayList extends React.Component {
             onClick={() => this.renderDetalhe(playlist)}
           >
             <PlaylistNome>{playlist.name}</PlaylistNome>
-          <br/>
+            <br />
             <ButtonDelet onClick={() => this.deletarPlaylist(playlist.id)}>
               <b>Deletar</b>
-          </ButtonDelet>
-          </DivCreate>    
+            </ButtonDelet>
+          </DivCreate>
         </Divplay>
       );
     });
 
     return (
       <Div>
-        <Header>Labefy</Header>
+        <Header>
+          Labefy
+          <InputCriar
+            type="text"
+            placeholder="Nome da Playlist"
+            value={this.state.nome}
+            onChange={this.getNomePlaylist}
+          />
+          <ButtonCreate onClick={this.createPlaylist}>
+            <b>Criar</b>
+          </ButtonCreate>
+        </Header>
 
-        <InputCriar
-          type="text"
-          placeholder="Nome da Playlist"
-          value={this.state.nome}
-          onChange={this.getNomePlaylist}
-        />
-
-        <ButtonCreate onClick={this.createPlaylist}><b>Criar</b></ButtonCreate>
-        <br />
-      
         <Body>{playlistsRenderizadas}</Body>
       </Div>
     );

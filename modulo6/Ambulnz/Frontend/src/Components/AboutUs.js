@@ -5,7 +5,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { deepOrange } from '@mui/material/colors';
 
-export default function AboutUsModal(props) {
+export default function AboutUs(props) {
+    
     const style = {
         position: 'absolute',
         top: '50%',
@@ -32,7 +33,7 @@ export default function AboutUsModal(props) {
                         Pizzaria Artesanal
                     </Typography>
                     <Typography id="modal-modal-description" variant="subtitle1" component="h2" sx={{ p: 2 }}>
-                        Site e API desenvolvida com: React.JS, Node.JS, Javascript, Typescript, Material-UI, Styled-components, Knex, Express.JS, Axios, POO, arquitetura em camadas, criptografia e clean code.
+                        Site e API desenvolvida por Andresa A Ribeiro
                     </Typography>
                     <Button sx={{ color: deepOrange[500], marginLeft:"41%" }} onClick={props.handleClose}>Ok</Button>
                 </Box>

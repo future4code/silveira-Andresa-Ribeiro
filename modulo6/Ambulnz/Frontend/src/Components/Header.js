@@ -12,31 +12,31 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from "../Assets/logo.png";
-import { goToLogin, goToPizzas } from './../Routes/coordinator';
+import { goToLogin, goToList } from './../Routes/coordinator';
 import { useNavigate } from 'react-router-dom';
-import AboutUsModal from './AboutUsModal';
-import OrdersModal from './OrdersModal';
+import AboutUs from './AboutUs';
+import Orders from './Orders';
 
-const ResponsiveAppBar = (props) => {
+const HeaderBar = (props) => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
     const navigate = useNavigate();
 
-    const handleOpenNavMenu = (event) => {
+    const handleOpenNav = (event) => {
         setAnchorElNav(event.currentTarget);
     };
 
-    const handleOpenUserMenu = (event) => {
+    const handleOpenUser = (event) => {
         setAnchorElUser(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
+    const handleCloseNav = () => {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
+    const handleCloseUser = () => {
         setAnchorElUser(null);
     };
 
@@ -54,13 +54,14 @@ const ResponsiveAppBar = (props) => {
 
     const handleModalClose = () => setModalOpen(false);
 
-//order
 
     const [OrderModalOpen, setOrderModalOpen] = React.useState(false);
+
     const handleOrderModalOpen = () => {
         setOrderModalOpen(true);
         setAnchorElUser(null);
     };
+    
     const handleOrderModalClose = () => setOrderModalOpen(false);
 
     return (
@@ -85,7 +86,7 @@ const ResponsiveAppBar = (props) => {
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
+                            onClick={handleOpenNav}
                             color="inherit"
                         >
                             <MenuIcon />
@@ -103,18 +104,18 @@ const ResponsiveAppBar = (props) => {
                                 horizontal: 'left',
                             }}
                             open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
+                            onClose={handleCloseNav}
                             sx={{
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            <MenuItem key={"Pizzas"} onClick={() => { goToPizzas(navigate) }}>
+                            <MenuItem key={"Pizzas"} onClick={() => { goToList(navigate) }}>
                                 <Typography textAlign="center">Pizzas</Typography>
                             </MenuItem>
                             <MenuItem key={"About us"} onClick={handleModalOpen}>
                                 <Typography textAlign="center">Sobre</Typography>
                             </MenuItem>
-                            <AboutUsModal
+                            <AboutUs
                                 open={modalOpen}
                                 handleClose={handleModalClose}
                             />
@@ -137,7 +138,7 @@ const ResponsiveAppBar = (props) => {
 
                         <Button
                             key={"Pizzas"}
-                            onClick={() => { goToPizzas(navigate) }}
+                            onClick={() => { goToList(navigate) }}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
                             Pizzas
@@ -149,7 +150,7 @@ const ResponsiveAppBar = (props) => {
                         >
                             Sobre
                         </Button>
-                        <AboutUsModal
+                        <AboutUs
                             open={modalOpen}
                             handleClose={handleModalClose}
                         />
@@ -157,7 +158,7 @@ const ResponsiveAppBar = (props) => {
 
                     <Box >
                         <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                            <IconButton onClick={handleOpenUser} sx={{ p: 0 }}>
                                 <Avatar sx={{ bgcolor: '#212121' }} src="/broken-image.jpg" />
                             </IconButton>
                         </Tooltip>
@@ -175,12 +176,12 @@ const ResponsiveAppBar = (props) => {
                                 horizontal: 'right',
                             }}
                             open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
+                            onClose={handleCloseUser}
                         >
                             <MenuItem key="Orders" onClick={handleOrderModalOpen}>
                                 <Typography textAlign="center">Orders</Typography>
                             </MenuItem>
-                            <OrdersModal
+                            <Orders
                             open={OrderModalOpen}
                             handleClose={handleOrderModalClose}
                             />
@@ -194,4 +195,4 @@ const ResponsiveAppBar = (props) => {
         </AppBar>
     );
 };
-export default ResponsiveAppBar;
+export default HeaderBar;

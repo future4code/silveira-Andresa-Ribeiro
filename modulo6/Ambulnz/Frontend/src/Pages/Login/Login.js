@@ -4,9 +4,9 @@ import { Main, Form, Header, Title, Button1 } from "./styled";
 import TextField from "@mui/material/TextField";
 import useForm from "../../Hooks/useForm";
 import axios from "axios";
-import { goToPizzas, goToSignUp } from "../../Routes/coordinator";
+import { goToList, goToSignUp } from "../../Routes/coordinator";
 import { Button } from "@mui/material";
-import { BASE_URL } from "../../Constants/BaseUrl";
+import { url } from "../../Constants/Url";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { grey } from "@mui/material/colors";
@@ -24,14 +24,14 @@ export const Login = () => {
   const login = (event) => {
     event.preventDefault();
     axios
-      .post(`${BASE_URL}/user/login`, form)
+      .post(`${url}/user/login`, form)
       .then((res) => {
         localStorage.setItem("token", res.data);
-        goToPizzas(navigate);
+        goToList(navigate);
       })
       .catch((error) => {
         MySwal.fire({
-          title: "Erro",
+          title: "Erro encontrado!",
           text: `${error.response.data.message}`,
           icon: "error",
           confirmButtonText: "Ok",

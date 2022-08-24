@@ -1,4 +1,4 @@
-export const goToPizzas = (navigate) => {
+export const goToList = (navigate) => {
     navigate("/pizza");
 };
 
