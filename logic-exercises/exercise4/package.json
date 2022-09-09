@@ -1,5 +1,5 @@
 {
-    "name": "Maior prefixo comum",
+    "name": "exercise4 - maior prefixo comum",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -9,7 +9,7 @@
       "test": "jest"
     },
     "keywords": [],
-    "author": "Andresa",
+    "author": "Andresa Alves",
     "license": "ISC",
     "devDependencies": {
 
